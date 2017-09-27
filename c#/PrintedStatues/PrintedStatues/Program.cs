@@ -13,35 +13,13 @@ namespace PrintedStatues
         {
             int numOfPrinters = 1;
             int n = Int32.Parse(Console.ReadLine());
-            int countDays = 0;
+            int countDays = 1;
 
-            if (n == 1)
-                countDays = 1;
-            else if (n % 2 == 0)
+            while(numOfPrinters < n)
             {
-                numOfPrinters += (n / 2)-1;
-                countDays += (n / 2)-1;
-                if(n % numOfPrinters == 0)
-                    countDays += n / numOfPrinters;
-                else
-                {
-                    countDays += (n / numOfPrinters) + 1;
-                }
-                
+                numOfPrinters = (int)Math.Pow(2, countDays);
+                countDays++;
             }
-            else
-            {
-                numOfPrinters += (n / 2);
-                countDays += (n / 2);
-                if (n % numOfPrinters == 0)
-                    countDays += n / numOfPrinters;
-                else
-                {
-                    countDays += (n / numOfPrinters) + 1;
-                }
-            }
-
-            
 
             Console.WriteLine(countDays);
             Console.Read();
